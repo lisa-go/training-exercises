@@ -175,6 +175,7 @@ const everyNotOdd = array4.every(function isOdd(element) {
 })
 console.log(everyNotOdd)
 
+
 // reverse
 Array.prototype.reverse = function(){
     let copy = [];
