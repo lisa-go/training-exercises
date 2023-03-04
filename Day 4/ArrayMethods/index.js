@@ -5,21 +5,24 @@ let array = [1, 2, 3, 4, 5];
 
 // map
 Array.prototype.map = function (callback) {
+    let copy = [];
     for (let i = 0; i < this.length; i++) {
-        callback(this[i], i, this);
+        copy[copy.length] = callback(this[i], i, this);
     }
+    return copy;
 }
 
-array.map(function (element) {
-    console.log(element);
+const mapped = array.map(function (element) {
+    return element * 10;
 })
+console.log(mapped)
 
 
 // filter
 Array.prototype.filter = function (callback) {
     let copy = [];
     for (let i = 0; i < this.length; i++) {
-        if (callback(this[i]) === true) {
+        if (callback(this[i], i, this) === true) {
             copy[copy.length] = this[i];
         }
     }
@@ -135,9 +138,9 @@ console.log(array4);
 
 // some
 let array5 = [1, 3, 5, 7];
-Array.prototype.some = function(callback) {
+Array.prototype.some = function (callback) {
     for (let i = 0; i < this.length; i++) {
-        if (callback(this[i])) {
+        if (callback(this[i], i , this)) {
             return true;
         }
     }
@@ -156,9 +159,9 @@ console.log(someOnlyOdd);
 
 
 // every
-Array.prototype.every = function(callback){
+Array.prototype.every = function (callback) {
     for (let i = 0; i < this.length; i++) {
-        if (!callback(this[i])) {
+        if (!callback(this[i], i , this)) {
             return false;
         }
     }
@@ -177,7 +180,7 @@ console.log(everyNotOdd)
 
 
 // reverse
-Array.prototype.reverse = function(){
+Array.prototype.reverse = function () {
     let copy = [];
     for (let i = 0; i < this.length; i++) {
         copy[i] = this[this.length - 1 - i];
