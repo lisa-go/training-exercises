@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+
+  <body>
+    <div id="app">
+      <form class="form">
+        <h1 class="form__title">Sign Up</h1>
+        <div class="form__container">
+          <div class="form__row">
+            <input class="input--sm" type="text" placeholder="Firstname" />
+            <input class="input--sm" type="text" placeholder="Lastname" />
+          </div>
+          <div class="form__row">
+            <input class="input--lg" type="text" placeholder="Mobile No." />
+          </div>
+          <div class="form__row">
+            <input class="input--lg" type="text" placeholder="Email Address" />
+          </div>
+          <div class="form__row">
+            <input class="input--sm" type="password" placeholder="Password" />
+            <input
+              class="input--sm"
+              type="password"
+              placeholder="Confirm Password"
+            />
+          </div>
+        </div>
+        <div class="form__agreement">
+          <div class="agreement__checkbox">
+            <input type="checkbox" id="agree" />
+            <label for="agree">I&nbsp;Agree</label>
+          </div>
+          <div class="agreement__text">
+            By clicking <span>Register</span>, you agree to the
+            <a href="">Terms and Conditions</a> set out by this site, including
+            our Cookie use
+          </div>
+        </div>
+        <div class="form__buttons">
+          <button class="form__button--register">Register</button>
+          <button class="form__button--signin">Sign In</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
