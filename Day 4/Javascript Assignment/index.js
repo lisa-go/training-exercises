@@ -6,7 +6,7 @@ Expected Output : 34223 */
 function q1(value) {
     return value.toString().split('').reverse().join('');
 }
-console.log(q1(32243));
+console.log(1, q1(32243));
 
 
 /* 2. Write a JavaScript function that checks whether a passed string is palindrome or not?
@@ -16,7 +16,8 @@ function q2(string) {
     if (str === str.split('').reverse().join('')) return true;
     else return false;
 }
-console.log(q2('Nurses run'))
+console.log(2, q2('Nurses run'));
+
 
 /* 3. Write a JavaScript function that generates all combinations of a string.
 Example string : 'dog'
@@ -43,47 +44,128 @@ function q3(string) {
     }
     return combinations;
 }
-console.log(q3('dog'));
+console.log(3, q3('dog'));
+
 
 /* 4. Write a JavaScript function that returns a passed string with letters in alphabetical order.
 Example string : 'webmaster'
 Expected Output : 'abeemrstw'
 Assume punctuation and numbers symbols are not included in the passed string. */
+function q4(string) {
+    return string.toLowerCase().replaceAll(' ', '').split('').sort().join('');
+}
+console.log(4, q4('web master'));
 
 
 /* 5. Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word of the string
 in upper case.
 Example string : 'the quick brown fox'
 Expected Output : 'The Quick Brown Fox ' */
+function q5(string) {
+    let words = string.split(' ');
+    let casedString = [];
+
+    for (let i = 0; i < words.length; i++) {
+        let letters = [];
+        letters = words[i].split('');
+
+        let cased = [];
+        cased.push(letters[0].toUpperCase());
+
+        for (let k = 1; k < letters.length; k++) {
+            cased.push(letters[k]);
+        }
+        casedString.push(cased.join(''))
+    }
+    return casedString.join(' ');
+}
+console.log(5, q5('the quick brown fox'));
 
 
 /* 6. Write a JavaScript function that accepts a string as a parameter and find the longest word within the string.
 Example string : 'Web Development Tutorial'
 Expected Output : 'Development' */
+function q6(string) {
+    let words = string.split(' ');
+
+    words.sort(function (a, b) {
+        return b.length - a.length;
+    })
+
+    return words[0];
+}
+console.log(6, q6('Web Development Tutorial'));
 
 
 /* 7. Write a JavaScript function that accepts a string as a parameter and counts the number of vowels within the string.
 Note : As the letter 'y' can be regarded as both a vowel and a consonant, we do not count 'y' as vowel here.
 Example string : 'The quick brown fox'
 Expected Output : 5 */
+function q7(string) {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    let counter = 0;
+    let str = string.toLowerCase().split('')
+
+    for (let i = 0; i < str.length; i++) {
+        if (vowels.includes(str[i])) counter++;
+    }
+    return counter;
+}
+console.log(7, q7('The quick brown fox'));
 
 
 /* 8. Write a JavaScript function that accepts a number as a parameter and check the number is prime or not.
 Note : A prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and
 itself. */
+function q8(number) {
+    if (number.toString().split('.').length >= 2) return 'Not a natural number';
+    if (number === 1) return 'Number needs to be greater than 1';
+    let factors = [];
+    for (let i = number; i > 0; i--) {
+        if (number % i === 0) {
+            factors.push(i);
+            if (factors.length > 2) return false;
+        }
+    }
+    return true;
+}
+console.log(8, q8(11));
 
 
 /* 9. Write a JavaScript function which accepts an argument and returns the type.
 Note : There are six possible values that typeof returns: object, boolean, function, number, string, and undefined. */
-
+function q9(arg) {
+    return typeof arg
+}
+console.log(9, q9(q9))
 
 /* 10. Write a JavaScript function which returns the n rows by n columns identity matrix. */
+function q10(n) {
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        let row = [];
+        for (let j = 0; j < n; j++) {
+            if (i === j) {
+                row.push(1);
+            }
+            else row.push(0);
+        }
+        arr.push(row)
+    }
+    return arr;
+}
+console.log(10, q10(4))
 
 
 /* 11. Write a JavaScript function which will take an array of numbers stored and find the second lowest and second
 greatest numbers, respectively.
 Sample array : [1,2,3,4,5]
 Expected Output : 2,4 */
+function q11(array){
+    array.sort();
+    return array[1] + ',' + array[array.length - 2]
+}
+console.log(11, q11([4,2,5,1,3]));
 
 
 /* 12. Write a JavaScript function which says whether a number is perfect.
@@ -93,9 +175,36 @@ Equivalently, a perfect number is a number that is half the sum of all of its po
 Example : The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors, and 1 + 2 + 3 = 6. Equivalently,
 the number 6 is equal to half the sum of all its positive divisors: ( 1 + 2 + 3 + 6 ) / 2 = 6. The next perfect number is 28 = 1
 + 2 + 4 + 7 + 14. This is followed by the perfect numbers 496 and 8128. */
+function q12(number){
+    if (number < 0) return number + ' is not a perfect number!';
+    let divisors = [];
+    for (let i = number - 1; i > 0; i--) {
+        if (number % i === 0) {
+            divisors.push(i);
+        }
+    }
+    let sum = 0;
+    for (let j = 0; j < divisors.length; j++) {
+        sum = sum + divisors[j];
+    }
+    if (sum === number) return number + ' is a perfect number!';
+    else return number + ' is not a perfect number!';
+}
+console.log(12, q12(28));
 
 
 /* 13. Write a JavaScript function to compute the factors of a positive integer. */
+function q13(number) {
+    if (number < 0) return;
+    let factors = [];
+    for (let i = number; i > 0; i--) {
+        if (number % i === 0) {
+            factors.push(i);
+        }
+    }
+    return factors;
+}
+console.log(13, q13(28));
 
 
 /* 14. Write a JavaScript function to convert an amount to coins.
