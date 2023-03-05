@@ -12,10 +12,10 @@ Array.prototype.map = function (callback) {
     return copy;
 }
 
-const mapped = array.map(function (element) {
+/* const mapped = array.map(function (element) {
     return element * 10;
 })
-console.log(mapped)
+console.log(mapped) */
 
 
 // filter
@@ -29,10 +29,10 @@ Array.prototype.filter = function (callback) {
     return copy;
 }
 
-const filtered = array.filter(function isOdd(value) {
+/* const filtered = array.filter(function isOdd(value) {
     if (value % 2 !== 0) return true;
 })
-console.log(filtered);
+console.log(filtered); */
 
 
 // concat
@@ -45,8 +45,8 @@ Array.prototype.concat = function (value) {
     return copy;
 }
 
-const concated = array.concat(array2);
-console.log(concated);
+/* const concated = array.concat(array2);
+console.log(concated); */
 
 
 // push
@@ -59,8 +59,8 @@ Array.prototype.push = function (...values) {
     return copy;
 }
 
-array3.push('10', 10, 'ten');
-console.log(array3);
+/* array3.push('10', 10, 'ten');
+console.log(array3); */
 
 
 // pop
@@ -70,9 +70,9 @@ Array.prototype.pop = function () {
     return poppedValue;
 }
 
-const popped = array3.pop();
+/* const popped = array3.pop();
 console.log(popped);
-console.log(array3);
+console.log(array3); */
 
 
 // slice
@@ -98,8 +98,8 @@ Array.prototype.slice = function (start, end = undefined) {
     return copy;
 }
 
-const sliced = array4.slice(2, -4);
-console.log(sliced);
+/* const sliced = array4.slice(2, -4);
+console.log(sliced); */
 
 
 // splice
@@ -131,9 +131,9 @@ Array.prototype.splice = function (start, deleteCount = 0, ...values) {
     return deletedItems;
 }
 
-const spliced = array4.splice(4, 2, 'a', 'n', 't');
+/* const spliced = array4.splice(4, 2, 'a', 'n', 't');
 console.log(spliced);
-console.log(array4);
+console.log(array4); */
 
 
 // some
@@ -147,7 +147,7 @@ Array.prototype.some = function (callback) {
     return false;
 }
 
-const someHasEven = array4.some(function isEven(element) {
+/* const someHasEven = array4.some(function isEven(element) {
     return element % 2 === 0;
 })
 console.log(someHasEven);
@@ -155,7 +155,7 @@ console.log(someHasEven);
 const someOnlyOdd = array5.some(function isEven(element) {
     return element % 2 === 0;
 })
-console.log(someOnlyOdd);
+console.log(someOnlyOdd); */
 
 
 // every
@@ -168,7 +168,7 @@ Array.prototype.every = function (callback) {
     return true;
 }
 
-const everyOdd = array5.every(function isOdd(element) {
+/* const everyOdd = array5.every(function isOdd(element) {
     return element % 2 !== 0;
 })
 console.log(everyOdd)
@@ -176,7 +176,7 @@ console.log(everyOdd)
 const everyNotOdd = array4.every(function isOdd(element) {
     return element % 2 !== 0;
 })
-console.log(everyNotOdd)
+console.log(everyNotOdd) */
 
 
 // reverse
@@ -191,5 +191,5 @@ Array.prototype.reverse = function () {
     return this;
 }
 
-array4.reverse();
-console.log(array4)
+/* array4.reverse();
+console.log(array4) */

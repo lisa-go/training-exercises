@@ -74,6 +74,12 @@ body {
     height: 14px;
 }
 
+#checkbox input:checked {
+    -moz-appearance: auto;
+    -webkit-appearance: auto;
+    -o-appearance: auto;
+}
+
 #checkbox label {
     font-weight: bold;
 }
