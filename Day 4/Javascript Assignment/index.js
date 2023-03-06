@@ -161,11 +161,11 @@ console.log(10, q10(4))
 greatest numbers, respectively.
 Sample array : [1,2,3,4,5]
 Expected Output : 2,4 */
-function q11(array){
+function q11(array) {
     array.sort();
     return array[1] + ',' + array[array.length - 2]
 }
-console.log(11, q11([4,2,5,1,3]));
+console.log(11, q11([4, 2, 5, 1, 3]));
 
 
 /* 12. Write a JavaScript function which says whether a number is perfect.
@@ -175,7 +175,7 @@ Equivalently, a perfect number is a number that is half the sum of all of its po
 Example : The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors, and 1 + 2 + 3 = 6. Equivalently,
 the number 6 is equal to half the sum of all its positive divisors: ( 1 + 2 + 3 + 6 ) / 2 = 6. The next perfect number is 28 = 1
 + 2 + 4 + 7 + 14. This is followed by the perfect numbers 496 and 8128. */
-function q12(number){
+function q12(number) {
     if (number < 0) return number + ' is not a perfect number!';
     let divisors = [];
     for (let i = number - 1; i > 0; i--) {
@@ -211,24 +211,67 @@ console.log(13, q13(28));
 Sample function : amountTocoins(46, [25, 10, 5, 2, 1])
 Here 46 is the amount. and 25, 10, 5, 2, 1 are coins.
 Output : 25, 10, 10, 1 */
+function q14(amount, array) {
+    array.sort(function (a, b) {
+        return b - a;
+    })
+    let result = [];
+    for (let i = 0; i < array.length; i++) {
+        let coins = Math.floor(amount / array[i]);
+        for (let j = 0; j < coins; j++) {
+            result.push(array[i]);
+            amount = amount - array[i];
+        }
+    }
+    return result;
+}
+console.log(14, q14(46, [25, 10, 5, 2, 1]));
 
 
 /* 15. Write a JavaScript function to compute the value of bn where n is the exponent and b is the bases. Accept b and n
 from the user and display the result. */
+function q15(b, n) {
+    return Math.pow(b, n);
+}
+console.log(15, q15(3, 4));
 
 
 /* 16. Write a JavaScript function to extract unique characters from a string.
 Example string : "thequickbrownfoxjumpsoverthelazydog"
 Expected Output : "thequickbrownfxjmpsvlazydg" */
-
+function q16(string) {
+    let result = [];
+    for (let i = 0; i < string.length; i++) {
+        if (!result.includes(string[i])) {
+            result.push(string[i]);
+        }
+    }
+    return result.join('');
+}
+console.log(16, q16("thequickbrownfoxjumpsoverthelazydog"));
 
 
 /* 17. Write a JavaScript function to get the number of occurrences of each letter in specified string. */
+function q17(string) {
+    let sorted = string.split('').sort();
+    let result = [];
 
+    for (let i = 0; i < sorted.length; i++) {
+        if (sorted[i] === sorted[i - 1]) {
+            result[result.length - 1].count += 1;
+        }
+        else {
+            result.push({ letter: sorted[i], count: 1 })
+        }
+    }
+    return result;
+}
+console.log(17, q17('banana'));
 
 
 /* 18. Write a function for searching JavaScript arrays with a binary search.
 Note : A binary search searches by splitting an array into smaller and smaller chunks until it finds the desired value. */
+
 
 
 /* 19. Write a JavaScript function that returns array elements larger than a number. */
@@ -250,13 +293,19 @@ Expected output : [[2, 1], [3, 1], [3, 2], [3, 2, 1]] */
 of occurrences of the specified letter within the string.
 Sample arguments : 'microsoft.com', 'o'
 Expected output : 3 */
-
+function q22(string, letter) {
+    let counter = 0;
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === letter) counter++;
+    }
+    return counter;
+}
+console.log(22, q22('microsoft.com', 'o'));
 
 
 /* 23. Write a JavaScript function to find the first not repeated character.
 Sample arguments : 'abacddbec'
 Expected output : 'e' */
-
 
 
 /* 24. Write a JavaScript function to apply Bubble Sort algorithm.
