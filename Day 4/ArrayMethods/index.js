@@ -34,6 +34,20 @@ Array.prototype.filter = function (callback) {
 })
 console.log(filtered); */
 
+//find
+Array.prototype.find = function(callback) {
+    for (let i = 0; i < this.length; i++) {
+        if (callback(this[i], i, this) === true) {
+            return this[i];
+        }
+    }
+}
+
+/* const found = array.find(function isEven(element){
+    return element % 2 === 0
+})
+console.log(found) */
+
 
 // concat
 let array2 = ["a", "b", "c"];
